@@ -5,8 +5,9 @@ regulatory clause or topic, it triages the most relevant internal policies, asse
 against them using an Anthropic Claude model, and renders the results into a Word report.
 
 This is the working-code home for the Hackathon 4 plan
-[`plans/hackathon-4/plan-compliance-audit-agent.md`](https://github.com/SAAF-Project/SAAF-Project/blob/main/plans/hackathon-4/plan-compliance-audit-agent.md)
-in the shared SAAF-Project repository. Per the SAAF "Building an agent" guidance, agent source code
+[`plan-compliance-audit-agent.md`](https://github.com/SAAF-Project/SAAF-Project/pull/117)
+(pending review in the shared SAAF-Project repository — update this link to the `main`
+blob once that PR merges). Per the SAAF "Building an agent" guidance, agent source code
 lives in its own repo while the plan and shared utilities stay in the main repo.
 
 ## Pipeline
