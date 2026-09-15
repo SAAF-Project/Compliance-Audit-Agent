@@ -9,8 +9,23 @@ venv/
 .idea/
 .vscode/
 
+# Local working copy of the SAAF layout — merged into the repo, never committed
+saaf-ver/*
+
+# Local developer notes
+call_graph.md
+
+# Pipeline source code — kept local, not published
+scripts/*.py
+
 # Local data & generated outputs — never commit real audit evidence
-data/
+data/*
+!data/plain_docs/
+data/plain_docs/*
+!data/plain_docs/.gitkeep
 *.docx
 results/
 output/
+prog_res/*
+example progress/
+raw_validation_report_*.json
