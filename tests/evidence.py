@@ -6,6 +6,7 @@ The helpers follow the rules that the agent prompts impose on evidence:
 - a quote counts as found when it appears in a policy after line breaks are removed;
 - line numbers follow ``with_line_numbers`` in ``scripts/build_prompt.py`` and start at 0.
 """
+
 from __future__ import annotations
 
 import json
@@ -28,7 +29,9 @@ NO_EVIDENCE_STATEMENTS = (
 _REFERENCE = re.compile(
     r"^(?P<label>Policy [A-Z]) > (?P<section>.+) > lines? (?P<start>\d+)(?:[-–](?P<end>\d+))?$"
 )
-_SOURCE = re.compile(r"^(?P<document>.+\.txt), lines? (?P<start>\d+)(?:[-–](?P<end>\d+))?$")
+_SOURCE = re.compile(
+    r"^(?P<document>.+\.txt), lines? (?P<start>\d+)(?:[-–](?P<end>\d+))?$"
+)
 
 
 def normalise(text: str) -> str:
@@ -65,7 +68,11 @@ def split_excerpt(excerpt: str) -> List[str]:
 def find_in(fragment: str, policies: Dict[str, List[str]]) -> List[str]:
     """Return the names of the policy files that contain ``fragment`` verbatim."""
     target = normalise(fragment)
-    return [name for name, lines in policies.items() if target in normalise(" ".join(lines))]
+    return [
+        name
+        for name, lines in policies.items()
+        if target in normalise(" ".join(lines))
+    ]
 
 
 def parse_reference(reference: str) -> Optional[Tuple[str, str, int, int]]:
@@ -98,16 +105,18 @@ def parse_source(source: str) -> Optional[Tuple[str, int, int]]:
     return match.group("document"), start, end
 
 
-def lines_contain(lines: List[str], start: int, end: int, fragment: str) -> bool:
+def lines_contain(
+    lines: List[str], start: int, end: int, fragment: str
+) -> bool:
     """True when ``fragment`` appears in lines ``start``..``end`` (0-based, inclusive)."""
     if start < 0 or end >= len(lines) or start > end:
         return False
-    return normalise(fragment) in normalise(" ".join(lines[start:end + 1]))
+    return normalise(fragment) in normalise(" ".join(lines[start : end + 1]))
 
 
 def section_of(lines: List[str], line_no: int) -> Optional[str]:
     """Return the heading of the numbered section that contains line ``line_no``."""
-    for line in reversed(lines[:line_no + 1]):
+    for line in reversed(lines[: line_no + 1]):
         match = re.match(r"^\d+\. (\S.*)$", line)
         if match:
             return match.group(1)
@@ -120,21 +129,29 @@ def clause_number(requirement: str) -> str:
     return match.group(1) if match else ""
 
 
-def check_row(row: dict, labels: Dict[str, str], policies: Dict[str, List[str]]) -> List[dict]:
+def check_row(
+    row: dict, labels: Dict[str, str], policies: Dict[str, List[str]]
+) -> List[dict]:
     """Check every quoted fragment of one clause row.
 
     Returns one result per fragment with the documents the row cites, the
     documents where the fragment was actually found, and whether the two agree.
     """
-    cited = [labels.get(label, label) for label, _, _, _ in parse_references(row.get("Policy Reference", ""))]
+    cited = [
+        labels.get(label, label)
+        for label, _, _, _ in parse_references(row.get("Policy Reference", ""))
+    ]
     results = []
     for fragment in split_excerpt(row.get("Policy Excerpt", "")):
         found = find_in(fragment, policies)
-        results.append({
-            "fragment": fragment,
-            "cited": cited,
-            "found_in": found,
-            "found": bool(found),
-            "attribution_ok": bool(found) and any(name in cited for name in found),
-        })
+        results.append(
+            {
+                "fragment": fragment,
+                "cited": cited,
+                "found_in": found,
+                "found": bool(found),
+                "attribution_ok": bool(found)
+                and any(name in cited for name in found),
+            }
+        )
     return results

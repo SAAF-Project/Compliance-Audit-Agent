@@ -1,10 +1,13 @@
 # Synthetic sample set
 
-Everything in this folder is **synthetic**. The company ("Example Insurance Group"), the five
-policies and the two guidelines were written for this repository. No real policy, guideline text
+Everything in this folder is **synthetic**. The company ("Example Insurance
+Group"), the five
+policies and the two guidelines were written for this repository. No real
+policy, guideline text
 or audit result is included.
 
-The set gives the agent a small, shareable input, shows what good output looks like, and adds a
+The set gives the agent a small, shareable input, shows what good output looks
+like, and adds a
 deliberately flawed case for the evidence and reconciliation criteria in
 [`AUDIT-CRITERIA.md`](../AUDIT-CRITERIA.md).
 
@@ -34,7 +37,8 @@ flawed-case/                 Guideline 1 results with three planted defects
 
 ## Running the agent on the samples
 
-Set `GUIDELINES_TO_CHECK = [1]` (or `[1, 2]`) in `scripts/orchestration.py`, then run from the
+Set `GUIDELINES_TO_CHECK = [1]` (or `[1, 2]`) in `scripts/orchestration.py`,
+then run from the
 repository root:
 
 ```bash
@@ -57,26 +61,33 @@ python scripts/orchestration.py --validate \
 | 2.2 documented deficiencies and remediation | Data Governance Standard, section 5 | Partially compliant, Low gap: remediation for material deficiencies only |
 | 2.3 independent review every three years | none | Gap, Medium: no policy evidence exists |
 
-The Business Continuity Standard is a distractor: it is not relevant to either guideline, so a
-correct selector should leave it out. The Outsourcing Policy and the Business Continuity Standard
+The Business Continuity Standard is a distractor: it is not relevant to either
+guideline, so a
+correct selector should leave it out. The Outsourcing Policy and the Business
+Continuity Standard
 each refer to a table by its caption, for the table citation rule.
 
 ## Reference outputs
 
-The files in `expected/` are **hand-written illustrations**, not recorded model output. They
-follow the output structure defined in `scripts/build_prompt.py` and obey the evidence rules of
+The files in `expected/` are **hand-written illustrations**, not recorded model
+output. They
+follow the output structure defined in `scripts/build_prompt.py` and obey the
+evidence rules of
 the prompts:
 
 - every policy excerpt is quoted ad verbatim from a sample policy;
 - line numbers are those of `with_line_numbers` and start at 0;
 - each row cites the document, section and line range where the quote stands.
 
-A real run will differ in wording, in notes and possibly in the lines it chooses to quote. Use the
-reference outputs to judge the structure and the conclusions, not to compare text literally.
+A real run will differ in wording, in notes and possibly in the lines it chooses
+to quote. Use the
+reference outputs to judge the structure and the conclusions, not to compare
+text literally.
 
 ## Flawed case
 
-`flawed-case/` repeats the guideline 1 results with three defects planted in the compliance
+`flawed-case/` repeats the guideline 1 results with three defects planted in the
+compliance
 checker's output. The gap identifier's output is unchanged.
 
 | Clause | Defect | What should happen |
@@ -95,6 +106,8 @@ The tests in `tests/` need no API key and no installation beyond Python:
 python -m unittest discover -s tests
 ```
 
-They check the prompt builders, the internal consistency of this sample set (verbatim quotes, line
-ranges, one row per clause) and that each planted defect is detectable from the sample policies.
+They check the prompt builders, the internal consistency of this sample set
+(verbatim quotes, line
+ranges, one row per clause) and that each planted defect is detectable from the
+sample policies.
 They do not call a model.
