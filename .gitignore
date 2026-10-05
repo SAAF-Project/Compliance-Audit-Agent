@@ -29,5 +29,13 @@ data/plain_docs/*
 results/
 output/
 prog_res/*
+# Pipeline output files, wherever a run wrote them
+*-output-raw_*.txt
+*-input_*.txt
+*-output_*.json
+merged-results_*.json
+output_*.json
+audit-report_*.md
+detailed_validation_*.txt
 example progress/
 raw_validation_report_*.json
