@@ -86,7 +86,7 @@ These are control objectives **for the agent itself**: what must be true of its 
 
 - **No automatic sync with the policy library.** In the organisation where the agent is piloted, all policies are kept in a SharePoint library and reach the agent through a synced OneDrive folder. The agent does not read the library itself. In particular, the policy summary that the selector relies on is produced by a separate, manually started agent run, so it can fall behind the library: a new or changed policy is invisible to the selector until someone regenerates the summary.
 - **Plain-text policies only.** The pipeline reads `.txt` files, while most policies exist as `.docx`. Each user converts the documents by hand, which adds effort and a place where text, tables or headings can be lost before the agent ever sees them.
-- **No automated tests and no synthetic sample data.** The criteria in section 3 have no test suite behind them yet.
+- **No public tests or sample data yet.** Meaningful tests of this agent have to refer to real company policies and to the audit results derived from them, which cannot be published. Until a synthetic guideline and policy set exists, the criteria in section 3 have no shareable test suite behind them.
 - **Evidence validation is optional and checks existence only.** Location validation (policy title, section and line range) is planned but not built.
 - **Silent fallback to all policies** when the selector's titles match no file (see CO-2).
 - **No cross-model or repeated-run check.** Each stage is one call to one model; consistency across runs is not measured.

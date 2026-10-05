@@ -4,7 +4,7 @@ A pilot company policy compliance auditing assistant. Given a regulatory guideli
 
 **This is an STP (straight-through processing) tool, not yet an interactive/agentic assistant.** It runs the same fixed steps every time and uses AI models to help work through large volumes of policy documents and analysis. Auditors review the results at the end.
 
-This is the working-code home for the Hackathon 4 plan `junhan-wen-compliance-audit-agent.md`, submitted in [SAAF-Project/SAAF-Project#117](https://github.com/SAAF-Project/SAAF-Project/pull/117). What the agent must be judged against is in [`AUDIT-CRITERIA.md`](AUDIT-CRITERIA.md). Per the SAAF "Building an agent" guidance, agent source code lives in its own repo while the plan and shared utilities stay in the main repo.
+This is the working-code home for the Hackathon 3 plan `plans/hackathon-3/junhan-wen-compliance-audit-agent.md`, submitted in [SAAF-Project/SAAF-Project#117](https://github.com/SAAF-Project/SAAF-Project/pull/117). What the agent must be judged against is in [`AUDIT-CRITERIA.md`](AUDIT-CRITERIA.md). Per the SAAF "Building an agent" guidance, agent source code lives in its own repo while the plan and shared utilities stay in the main repo.
 
 ## Focus: verbatim evidence
 
@@ -21,14 +21,10 @@ prompts/                   Full agent prompts (system + user prompt) — single 
   compliance-checker-agent.md
   gap-identifier-agent.md
   reporter-agent.md
-scripts/                   Pipeline code
+scripts/
   orchestration.py         Entry point — command-line arguments, run settings, loop over the guidelines
   claude_config.py         Anthropic client + run configuration (env vars)
-  utils.py                 Pipeline functions: model calls, the four agent stages, merge, audit report
-  build_prompt.py          Loads prompts/*.md, fills placeholders, builds knowledge chunks
-  json_utils.py            Parses the agents' replies (JSON, and the reporter's Markdown report)
-  md_to_docx.py            Simple, direct Markdown → Word copy of the final audit report
-  validate_func.py         Verbatim evidence validation (quoted excerpts vs. original policy documents)
+AUDIT-CRITERIA.md          Control objectives, acceptance criteria and known gaps (SAAF A2 standard)
 ```
 
 Local-only folders (git-ignored, never committed):
