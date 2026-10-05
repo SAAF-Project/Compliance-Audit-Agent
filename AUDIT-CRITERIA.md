@@ -86,7 +86,7 @@ These are control objectives **for the agent itself**: what must be true of its 
 
 - **No automatic sync with the policy library.** In the organisation where the agent is piloted, all policies are kept in a SharePoint library and reach the agent through a synced OneDrive folder. The agent does not read the library itself. In particular, the policy summary that the selector relies on is produced by a separate, manually started agent run, so it can fall behind the library: a new or changed policy is invisible to the selector until someone regenerates the summary.
 - **Plain-text policies only.** The pipeline reads `.txt` files, while most policies exist as `.docx`. Each user converts the documents by hand, which adds effort and a place where text, tables or headings can be lost before the agent ever sees them.
-- **No public tests or sample data yet.** Meaningful tests of this agent have to refer to real company policies and to the audit results derived from them, which cannot be published. Until a synthetic guideline and policy set exists, the criteria in section 3 have no shareable test suite behind them.
+- **Public tests cover the prompts and a small synthetic set only.** `samples/` holds two synthetic guidelines, five synthetic policies, hand-written reference outputs and a flawed case with three planted defects; `tests/` checks the prompt builders and the consistency of that set without calling a model. Tests on real company policies and on the audit results derived from them cannot be published, and no recorded model run on the synthetic set is included yet.
 - **Evidence validation is optional and checks existence only.** Location validation (policy title, section and line range) is planned but not built.
 - **Silent fallback to all policies** when the selector's titles match no file (see CO-2).
 - **No cross-model or repeated-run check.** Each stage is one call to one model; consistency across runs is not measured.
@@ -109,7 +109,7 @@ These are control objectives **for the agent itself**: what must be true of its 
 | CO-4 — failed stage is recorded as an error | ☐ | Read from the code, not exercised |
 | CO-5 — no credentials or evidence in the repository | ☑ | Tracked files reviewed on 2026-10-05: none contains credentials, policy text or run output |
 
-Next steps: a small synthetic guideline and policy set, so that the criteria can be run by someone else, and a deliberately flawed case (a paraphrased excerpt, a misattributed excerpt, a compliance/gap disagreement) to exercise CO-1 and CO-3.
+Next steps: run the agent on the synthetic set in `samples/` and on its flawed case (a paraphrased excerpt, a misattributed excerpt, a compliance/gap disagreement), and record the results here to exercise CO-1 and CO-3.
 
 ## 7. Observability
 

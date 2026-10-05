@@ -1,0 +1,64 @@
+Third-Party Risk Standard
+
+Document type: Standard
+Owner: Head of Procurement
+Version: 2.4
+Approved: 2025-09-02
+Classification: synthetic sample, not a real policy
+
+1. Purpose
+
+1.1 This Standard describes the minimum controls for the selection, contracting
+and oversight of third parties that deliver services to the Company.
+
+1.2 It supports the Outsourcing Policy and applies in addition to it whenever a
+third party performs a critical or important function.
+
+2. Risk classification
+
+2.1 Each third party is classified as low, medium or high risk on the basis of
+the criticality of the service, the sensitivity of the data involved and the
+ease with which the third party can be replaced.
+
+2.2 The classification is recorded in the third-party inventory and is reviewed
+when the scope of the service changes and at least once every two years.
+
+3. Due diligence
+
+3.1 A documented due diligence assessment must be completed before any contract
+for a critical or important function is signed.
+
+3.2 The assessment covers the financial soundness of the service provider, its
+technical ability, its information security controls, its business continuity
+arrangements and any conflict of interest.
+
+3.3 The results of the assessment are stored in the third-party inventory
+together with the evidence received from the service provider.
+
+3.4 For medium and low risk third parties a simplified questionnaire is
+sufficient.
+
+4. Contracting
+
+4.1 Contracts are drafted on the basis of the standard contract templates
+maintained by the Legal department.
+
+4.2 Deviations from the standard clauses on confidentiality, liability and data
+protection require the written approval of the Legal department.
+
+5. Ongoing oversight
+
+5.1 High risk third parties are reassessed every year; medium risk third parties
+are reassessed every three years.
+
+5.2 Incidents at a third party that affect the Company are recorded in the
+incident register within two working days.
+
+5.3 The Head of Procurement reports the number of overdue reassessments to the
+Risk Committee every quarter.
+
+6. Concentration
+
+6.1 Procurement monitors the share of critical services that is delivered by a
+single third party and reports concentrations above forty percent to the Risk
+Management Function.

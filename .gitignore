@@ -40,3 +40,6 @@ audit-report_*.md
 detailed_validation_*.txt
 example progress/
 raw_validation_report_*.json
+
+# Test caches
+.pytest_cache/

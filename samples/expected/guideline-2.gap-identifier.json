@@ -1,0 +1,48 @@
+{
+  "Guideline Items": "2",
+  "Guideline Title": "Guideline 2 – Data quality",
+  "Generalized Gap Audit": {
+    "SoG Requirement": "Guideline 2 – Data quality",
+    "Policy Reference": "Policy A",
+    "Policy Excerpt": "See the clause rows below.",
+    "Responsible Function": "Chief Data Officer",
+    "Gap Outcome": "Gap",
+    "Gap Severity": "Medium",
+    "Gap Audit Note": "See the clause rows below."
+  },
+  "Detailed Gap Audit": [
+    {
+      "SoG Requirement": "2.1. The undertaking should assess the data used in the calculation of technical provisions against the criteria of accuracy, completeness and appropriateness.",
+      "Policy Reference": "Policy A > Data quality criteria > line 16-17",
+      "Policy Excerpt": "Data used in the calculation of technical provisions is assessed against the criteria of accuracy, completeness and appropriateness.",
+      "Responsible Function": "Chief Data Officer",
+      "Gap Outcome": "NoGap",
+      "Gap Severity": "None",
+      "Gap Audit Note": "The clause is mirrored almost word for word in the standard."
+    },
+    {
+      "SoG Requirement": "2.2. The undertaking should document data deficiencies together with their impact and the remediation that is planned.",
+      "Policy Reference": "Policy A > Data deficiencies > line 44-45; Policy A > Data deficiencies > line 47-48",
+      "Policy Excerpt": "Data deficiencies are recorded in the data issue log together with their expected impact. ... The data owner proposes a remediation plan for every deficiency that is classified as material.",
+      "Responsible Function": "Data owner",
+      "Gap Outcome": "PartialGap",
+      "Gap Severity": "Low",
+      "Gap Audit Note": "Remediation planning is limited to material deficiencies; other deficiencies have no documented remediation."
+    },
+    {
+      "SoG Requirement": "2.3. The undertaking should have the data quality framework reviewed by an independent party at least every three years.",
+      "Policy Reference": "Not specified",
+      "Policy Excerpt": "No corresponding policy evidence found.",
+      "Responsible Function": "Not specified",
+      "Gap Outcome": "Gap",
+      "Gap Severity": "Medium",
+      "Gap Audit Note": "No requirement for an independent review of the data quality framework was found in the provided policies."
+    }
+  ],
+  "Policy Source References": [
+    "Data Governance Standard.txt, lines 16-17",
+    "Data Governance Standard.txt, lines 44-45",
+    "Data Governance Standard.txt, lines 47-48"
+  ],
+  "Audit Summary": "Design alignment is partial. Clause 2.1 shows no gap, clause 2.2 a Low partial gap (remediation for material deficiencies only) and clause 2.3 a Medium gap (no independent review)."
+}

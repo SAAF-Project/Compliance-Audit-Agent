@@ -1,0 +1,54 @@
+{
+  "Guideline Items": "1",
+  "Guideline Title": "Guideline 1 – Outsourcing of critical or important functions",
+  "Generalized Compliance Audit": {
+    "SoG Requirement": "Guideline 1 – Outsourcing of critical or important functions",
+    "Policy Reference": "Policy A; Policy B",
+    "Policy Excerpt": "See the clause rows below.",
+    "Responsible Function": "Chief Operating Officer",
+    "Compliance Status": "⚠️Partially Compliant",
+    "Compliance Audit Note": "See the clause rows below."
+  },
+  "Detailed Compliance Audit": [
+    {
+      "SoG Requirement": "1.1. The undertaking should establish a written outsourcing policy that is approved by the administrative, management or supervisory body.",
+      "Policy Reference": "Policy A > Governance and approval > line 30-31",
+      "Policy Excerpt": "This Policy is approved by the Board of Directors and is reviewed at least annually.",
+      "Responsible Function": "Chief Operating Officer",
+      "Compliance Status": "✅Fully Compliant",
+      "Compliance Audit Note": "A written outsourcing policy exists and is approved by the Board of Directors, which is the governing body."
+    },
+    {
+      "SoG Requirement": "1.2. Before outsourcing a critical or important function, the undertaking should perform a documented due diligence on the service provider.",
+      "Policy Reference": "Policy B > Due diligence > line 27-28; Policy A > Critical or important functions > line 46-47",
+      "Policy Excerpt": "A documented due diligence assessment must be completed before any contract for a critical or important function is signed. ... The business owner documents the criticality assessment before the selection of a service provider starts",
+      "Responsible Function": "Head of Procurement",
+      "Compliance Status": "✅Fully Compliant",
+      "Compliance Audit Note": "Mandatory language ('must be completed before') covers the timing and the documentation of the due diligence."
+    },
+    {
+      "SoG Requirement": "1.3. The written agreement should grant the undertaking and its supervisory authority effective access to all data and premises of the service provider that relate to the outsourced function.",
+      "Policy Reference": "Policy A > Written agreement > line 58-59",
+      "Policy Excerpt": "The agreement must grant the Company the right to audit the service provider's data related to the outsourced function.",
+      "Responsible Function": "Chief Operating Officer",
+      "Compliance Status": "⚠️Partially Compliant",
+      "Compliance Audit Note": "Access to data is granted to the Company only. Access for the supervisory authority and access to premises are not mentioned."
+    },
+    {
+      "SoG Requirement": "1.4. The undertaking should maintain an exit plan for each critical outsourcing arrangement and test it at least every two years.",
+      "Policy Reference": "Policy A > Termination and exit > line 83-84",
+      "Policy Excerpt": "An exit plan may be prepared for critical outsourcing arrangements where the business owner considers it necessary.",
+      "Responsible Function": "Business owner",
+      "Compliance Status": "⚠️Partially Compliant",
+      "Compliance Audit Note": "Permissive language ('may be prepared') is used and no testing of exit plans is required."
+    }
+  ],
+  "Compliance Audit Policy Source References": [
+    "Outsourcing Policy.txt, lines 30-31",
+    "Third-Party Risk Standard.txt, lines 27-28",
+    "Outsourcing Policy.txt, lines 46-47",
+    "Outsourcing Policy.txt, lines 58-59",
+    "Outsourcing Policy.txt, lines 83-84"
+  ],
+  "Compliance Audit Summary": "The SoG is partially compliant. Relevant regulatory requirements are addressed in Outsourcing Policy, Governance and approval and Written agreement, and in Third-Party Risk Standard, Due diligence. But supervisory access, access to premises and mandatory, tested exit plans are missing."
+}

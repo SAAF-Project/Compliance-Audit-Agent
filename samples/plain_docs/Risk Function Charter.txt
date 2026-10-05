@@ -1,0 +1,42 @@
+Risk Function Charter
+
+Document type: Charter
+Owner: Chief Risk Officer
+Version: 4.0
+Approved: 2025-03-11
+Classification: synthetic sample, not a real policy
+
+1. Mandate
+
+1.1 The Risk Management Function assists the Board of Directors in the effective
+operation of the risk management system.
+
+1.2 The function is independent from the business units whose risks it monitors
+and has direct access to the Board of Directors.
+
+2. Responsibilities
+
+2.1 The Risk Management Function maintains an aggregated view of the risk
+profile of the Company and reports on it to the Risk Committee every quarter.
+
+2.2 The Risk Management Function confirms the criticality assessment of proposed
+outsourcing arrangements.
+
+2.3 The Risk Management Function reviews the remediation plans for material data
+deficiencies and monitors their progress.
+
+2.4 The function advises the Board of Directors on strategic decisions such as
+major projects, investments and changes to the business model.
+
+3. Authority
+
+3.1 The function has unrestricted access to all records, staff and premises of
+the Company that it needs to carry out its responsibilities.
+
+3.2 The Chief Risk Officer may escalate any matter directly to the chair of the
+Risk Committee.
+
+4. Review
+
+4.1 This Charter is reviewed every two years and is approved by the Board of
+Directors.

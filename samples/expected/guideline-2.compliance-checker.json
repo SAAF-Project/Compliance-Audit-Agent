@@ -1,0 +1,44 @@
+{
+  "Guideline Items": "2",
+  "Guideline Title": "Guideline 2 – Data quality",
+  "Generalized Compliance Audit": {
+    "SoG Requirement": "Guideline 2 – Data quality",
+    "Policy Reference": "Policy A",
+    "Policy Excerpt": "See the clause rows below.",
+    "Responsible Function": "Chief Data Officer",
+    "Compliance Status": "❌Gap Identified",
+    "Compliance Audit Note": "See the clause rows below."
+  },
+  "Detailed Compliance Audit": [
+    {
+      "SoG Requirement": "2.1. The undertaking should assess the data used in the calculation of technical provisions against the criteria of accuracy, completeness and appropriateness.",
+      "Policy Reference": "Policy A > Data quality criteria > line 16-17",
+      "Policy Excerpt": "Data used in the calculation of technical provisions is assessed against the criteria of accuracy, completeness and appropriateness.",
+      "Responsible Function": "Chief Data Officer",
+      "Compliance Status": "✅Fully Compliant",
+      "Compliance Audit Note": "All three criteria are named and applied to the data used for technical provisions."
+    },
+    {
+      "SoG Requirement": "2.2. The undertaking should document data deficiencies together with their impact and the remediation that is planned.",
+      "Policy Reference": "Policy A > Data deficiencies > line 44-45; Policy A > Data deficiencies > line 47-48",
+      "Policy Excerpt": "Data deficiencies are recorded in the data issue log together with their expected impact. ... The data owner proposes a remediation plan for every deficiency that is classified as material.",
+      "Responsible Function": "Data owner",
+      "Compliance Status": "⚠️Partially Compliant",
+      "Compliance Audit Note": "Deficiencies and their impact are documented, but remediation is planned for material deficiencies only."
+    },
+    {
+      "SoG Requirement": "2.3. The undertaking should have the data quality framework reviewed by an independent party at least every three years.",
+      "Policy Reference": "Not specified",
+      "Policy Excerpt": "No corresponding section identified",
+      "Responsible Function": "Not specified",
+      "Compliance Status": "❌Gap Identified",
+      "Compliance Audit Note": "No corresponding section identified. Internal reporting on data quality exists but no independent review is required."
+    }
+  ],
+  "Compliance Audit Policy Source References": [
+    "Data Governance Standard.txt, lines 16-17",
+    "Data Governance Standard.txt, lines 44-45",
+    "Data Governance Standard.txt, lines 47-48"
+  ],
+  "Compliance Audit Summary": "The SoG is partially compliant and a gap is identified. Relevant regulatory requirements are addressed in Data Governance Standard, Data quality criteria and Data deficiencies. But no independent review of the data quality framework is required."
+}

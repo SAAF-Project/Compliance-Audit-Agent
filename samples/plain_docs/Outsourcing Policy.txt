@@ -1,0 +1,93 @@
+Outsourcing Policy
+
+Document type: Policy
+Owner: Chief Operating Officer
+Version: 3.1
+Approved: 2025-11-18
+Classification: synthetic sample, not a real policy
+
+1. Purpose
+
+1.1 This Policy sets out the principles that Example Insurance Group (the
+Company) applies when it entrusts an activity to a service provider instead of
+performing it itself.
+
+1.2 It aims to make sure that outsourcing does not reduce the quality of the
+system of governance, does not unduly increase operational risk and does not
+impair the ability of the supervisory authority to monitor the Company.
+
+2. Scope
+
+2.1 This Policy applies to all business units and legal entities of the Company
+and to every outsourcing arrangement, including arrangements with other entities
+of the same group.
+
+2.2 Purchases of standard goods and services that the Company would not normally
+perform itself, such as utilities or market data subscriptions, are outside the
+scope of this Policy.
+
+3. Governance and approval
+
+3.1 This Policy is approved by the Board of Directors and is reviewed at least
+annually.
+
+3.2 The Chief Operating Officer owns this Policy and reports material deviations
+to the Risk Committee within thirty days of their discovery.
+
+3.3 Every outsourcing arrangement has a named business owner who remains
+accountable for the outsourced activity throughout the life of the arrangement.
+
+4. Critical or important functions
+
+4.1 A function is critical or important when a defect or failure in its
+performance would materially impair the continuous compliance of the Company
+with its licence conditions, its financial performance or the continuity of its
+services to policyholders.
+
+4.2 The business owner documents the criticality assessment before the selection
+of a service provider starts and has it confirmed by the Risk Management
+Function.
+
+4.3 The key functions of the system of governance may be outsourced only with
+the prior approval of the Board of Directors.
+
+5. Written agreement
+
+5.1 Every outsourcing arrangement is laid down in a written agreement that is
+signed before the service starts.
+
+5.2 The agreement must grant the Company the right to audit the service
+provider's data related to the outsourced function.
+
+5.3 The agreement states the duties of both parties, the agreed service levels,
+the notice period for termination and the rules for sub-outsourcing.
+
+5.4 The service provider must inform the Company without delay of any
+development that may materially affect its ability to carry out the outsourced
+function.
+
+6. Monitoring
+
+6.1 The business owner monitors the performance of the service provider against
+the agreed service levels at least quarterly and records the outcome in the
+outsourcing register.
+
+6.2 Table 2 – Register of critical outsourcing arrangements lists, for each
+arrangement, the service provider, the business owner, the start date and the
+date of the latest review.
+
+6.3 Service level breaches that last longer than one reporting period are
+escalated to the Chief Operating Officer.
+
+7. Termination and exit
+
+7.1 An exit plan may be prepared for critical outsourcing arrangements where the
+business owner considers it necessary.
+
+7.2 On termination, the service provider returns or destroys all Company data
+and confirms this in writing.
+
+8. Record keeping
+
+8.1 The outsourcing register and all supporting assessments are retained for
+seven years after the end of the arrangement.

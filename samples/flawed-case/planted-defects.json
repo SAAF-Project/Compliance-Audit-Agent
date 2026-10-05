@@ -1,0 +1,32 @@
+{
+  "guideline": "1",
+  "defects": [
+    {
+      "clause": "1.2",
+      "type": "paraphrased excerpt",
+      "agent": "compliance-checker",
+      "description": "The policy excerpt is reworded instead of quoted ad verbatim.",
+      "expected_detection": "Evidence validation marks the excerpt as not found in any policy document.",
+      "found_in": []
+    },
+    {
+      "clause": "1.3",
+      "type": "misattributed excerpt",
+      "agent": "compliance-checker",
+      "description": "The excerpt is verbatim, but the reference names Policy B (Third-Party Risk Standard) while the text is in Policy A (Outsourcing Policy).",
+      "expected_detection": "Evidence validation finds the excerpt and reports a document that differs from the cited one.",
+      "cited": "Third-Party Risk Standard.txt",
+      "found_in": [
+        "Outsourcing Policy.txt"
+      ]
+    },
+    {
+      "clause": "1.4",
+      "type": "compliance/gap disagreement",
+      "agent": "compliance-checker vs gap-identifier",
+      "description": "The compliance checker rates the clause Fully Compliant while the gap identifier reports a Medium partial gap.",
+      "expected_detection": "The reporter downgrades the clause to Partially Compliant, sets Consistency Check to 'Adjusted conservatively' and gives the reason.",
+      "expected_reporter_status": "Partially Compliant"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "1": {
+    "Policy A": "Outsourcing Policy.txt",
+    "Policy B": "Third-Party Risk Standard.txt",
+    "Policy C": "Risk Function Charter.txt"
+  },
+  "2": {
+    "Policy A": "Data Governance Standard.txt",
+    "Policy B": "Risk Function Charter.txt"
+  }
+}

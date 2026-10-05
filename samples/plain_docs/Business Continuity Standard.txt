@@ -1,0 +1,44 @@
+Business Continuity Standard
+
+Document type: Standard
+Owner: Head of Operational Resilience
+Version: 2.0
+Approved: 2025-10-07
+Classification: synthetic sample, not a real policy
+
+1. Purpose
+
+1.1 This Standard sets the requirements for keeping critical business processes
+running during a disruption and for restoring them afterwards.
+
+2. Business impact analysis
+
+2.1 Every business unit performs a business impact analysis each year and
+determines the maximum tolerable period of disruption for its processes.
+
+2.2 Processes with a maximum tolerable period of disruption of less than two
+working days are classified as critical.
+
+3. Continuity plans
+
+3.1 A continuity plan exists for every critical process and names the people who
+decide on its activation.
+
+3.2 Continuity plans are tested at least once a year and the lessons learned are
+recorded.
+
+3.3 Table 1 – Recovery time objectives per critical process sets out the agreed
+recovery times.
+
+4. Crisis management
+
+4.1 The crisis management team is chaired by the Chief Operating Officer and
+meets within four hours of the declaration of a crisis.
+
+4.2 Communication with policyholders, staff and the supervisory authority during
+a crisis is coordinated by the Communications department.
+
+5. Dependencies
+
+5.1 Dependencies on buildings, systems, staff and suppliers are recorded for
+every critical process.

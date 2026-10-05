@@ -25,6 +25,8 @@ scripts/
   orchestration.py         Entry point — command-line arguments, run settings, loop over the guidelines
   claude_config.py         Anthropic client + run configuration (env vars)
   build_prompt.py          Prompt builders for the selector, compliance checker, gap identifier and reporter agents
+samples/                   Synthetic guidelines, policies, reference outputs and a flawed case (see samples/README.md)
+tests/                     Tests of the prompt builders and of the sample set (no API key needed)
 AUDIT-CRITERIA.md          Control objectives, acceptance criteria and known gaps (SAAF A2 standard)
 ```
 
@@ -96,6 +98,8 @@ Put these files in `data/` (git-ignored). Never commit real audit evidence or pe
 | `data/policy_summary.txt` | One-line-per-policy summary used by the selector |
 | `data/plain_docs/*.txt` | Full plain-text policy documents (filenames should match policy titles) |
 
+To try the agent without your own data, use the synthetic set in [`samples/`](samples/README.md): two guidelines, five policies, reference outputs and a deliberately flawed case.
+
 ## Running
 
 Run from the repository root. Outputs are written to the progress folder (`./prog_res` by default), which is created if it does not exist:
@@ -120,6 +124,14 @@ Pick guidelines by editing `GUIDELINES_TO_CHECK` at the top of `orchestration.py
 | `--save-raw-results` | Also save the raw results JSON with every agent's output (`<progress-path>/output_<n>_<ts>.json`); not saved by default |
 | `--findings-file FILE` | Save the raw results JSON to this path instead (implies `--save-raw-results`). A fixed path is overwritten by each guideline when several are checked |
 
+## Tests
+
+```bash
+python -m unittest discover -s tests
+```
+
+The tests run without an API key. They cover the prompt builders, the consistency of the synthetic sample set (verbatim quotes, line ranges, one row per clause) and the detectability of the three planted defects in `samples/flawed-case/`. They do not call a model.
+
 ## Configuration
 
 `scripts/claude_config.py` reads everything from environment variables (defaults shown):
@@ -140,7 +152,7 @@ Pick guidelines by editing `GUIDELINES_TO_CHECK` at the top of `orchestration.py
 
 - Add user checkpoints: there are several points in the process where auditors could pause the run to review, give feedback or make adjustments, so that only the affected part of the analysis is redone. Today the tool runs straight through without stopping.
 - Currently, validation only checks whether the quoted excerpts are verbatim from the original policy documents. Location validation (policy title, section and line range in "Policy Reference") is planned for later work.
-- Sample/synthetic input data is not included yet.
+- The synthetic sample set is small (two guidelines, five policies), and its reference outputs are hand-written illustrations, not recorded model output.
 
 ## Ownership / data handling
 

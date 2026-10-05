@@ -1,0 +1,5 @@
+Outsourcing Policy (Policy, owner: Chief Operating Officer): Principles for outsourcing: approval, criticality assessment, written agreement, monitoring, termination and exit.
+Third-Party Risk Standard (Standard, owner: Head of Procurement): Minimum controls for third parties: risk classification, due diligence, contracting, reassessment and concentration.
+Data Governance Standard (Standard, owner: Chief Data Officer): Data quality criteria, data directory, reconciliations, handling of data deficiencies and reporting.
+Risk Function Charter (Charter, owner: Chief Risk Officer): Mandate, responsibilities, authority and review of the Risk Management Function.
+Business Continuity Standard (Standard, owner: Head of Operational Resilience): Business impact analysis, continuity plans, testing, crisis management and dependencies.

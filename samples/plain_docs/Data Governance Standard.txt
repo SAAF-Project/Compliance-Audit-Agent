@@ -1,0 +1,54 @@
+Data Governance Standard
+
+Document type: Standard
+Owner: Chief Data Officer
+Version: 1.7
+Approved: 2025-06-24
+Classification: synthetic sample, not a real policy
+
+1. Purpose
+
+1.1 This Standard defines how the Company makes sure that the data used for the
+calculation of technical provisions, capital requirements and regulatory reports
+is fit for purpose.
+
+2. Data quality criteria
+
+2.1 Data used in the calculation of technical provisions is assessed against the
+criteria of accuracy, completeness and appropriateness.
+
+2.2 Data is accurate when it is free from material errors, complete when it
+covers all relevant portfolios and periods, and appropriate when it is suitable
+for the purpose for which it is used.
+
+3. Data directory
+
+3.1 Each data owner maintains a data directory that lists the source, the
+characteristics and the use of every critical data element.
+
+3.2 The data directory is updated whenever a source system, a transformation or
+a use of the data changes.
+
+4. Controls
+
+4.1 Reconciliations between source systems and the actuarial data warehouse are
+performed every quarter and are signed off by the data owner.
+
+4.2 Manual adjustments to data are recorded with the name of the person who made
+them, the date and the reason.
+
+4.3 Automated plausibility checks are run on every data delivery; deliveries
+that fail a check are returned to the supplier.
+
+5. Data deficiencies
+
+5.1 Data deficiencies are recorded in the data issue log together with their
+expected impact.
+
+5.2 The data owner proposes a remediation plan for every deficiency that is
+classified as material.
+
+6. Reporting
+
+6.1 The Chief Data Officer reports on the state of data quality to the Risk
+Committee twice a year.
