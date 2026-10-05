@@ -15,8 +15,10 @@ saaf-ver/*
 # Local developer notes
 call_graph.md
 
-# Pipeline source code — kept local, not published
+# Pipeline source code — kept local, not published, except the entry point and the run configuration
 scripts/*.py
+!scripts/orchestration.py
+!scripts/claude_config.py
 
 # Local data & generated outputs — never commit real audit evidence
 data/*

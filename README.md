@@ -21,14 +21,17 @@ prompts/                   Full agent prompts (system + user prompt) — single 
   compliance-checker-agent.md
   gap-identifier-agent.md
   reporter-agent.md
-scripts/                   Pipeline code
-  orchestration.py         Entry point — runs the full workflow per guideline
+scripts/                   Pipeline code (only the two files marked * are published)
+  orchestration.py *       Entry point — command-line arguments, run settings, loop over the guidelines
+  claude_config.py *       Anthropic client + run configuration (env vars)
+  utils.py                 Pipeline functions: model calls, the four agent stages, merge, audit report
   build_prompt.py          Loads prompts/*.md, fills placeholders, builds knowledge chunks
-  claude_config.py         Anthropic client + run configuration (env vars)
   json_utils.py            Parses the agents' replies (JSON, and the reporter's Markdown report)
   md_to_docx.py            Simple, direct Markdown → Word copy of the final audit report
   validate_func.py         Verbatim evidence validation (quoted excerpts vs. original policy documents)
 ```
+
+**Not runnable from a clone.** This repository publishes the prompts, the entry point (`scripts/orchestration.py`) and the run configuration (`scripts/claude_config.py`). The pipeline functions (`utils.py` and the modules it imports) are kept local and are not published, so the commands under [Running](#running) only work with the full local copy.
 
 Local-only folders (git-ignored, never committed):
 
@@ -143,6 +146,7 @@ Pick guidelines by editing `GUIDELINES_TO_CHECK` at the top of `orchestration.py
 - Add user checkpoints: there are several points in the process where auditors could pause the run to review, give feedback or make adjustments, so that only the affected part of the analysis is redone. Today the tool runs straight through without stopping.
 - Currently, validation only checks whether the quoted excerpts are verbatim from the original policy documents. Location validation (policy title, section and line range in "Policy Reference") is planned for later work.
 - Sample/synthetic input data is not included yet.
+- The pipeline functions (`scripts/utils.py` and the modules it imports) are not published; only the entry point and the run configuration are.
 
 ## Ownership / data handling
 
