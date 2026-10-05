@@ -4,7 +4,7 @@ A pilot company policy compliance auditing assistant. Given a regulatory guideli
 
 **This is an STP (straight-through processing) tool, not yet an interactive/agentic assistant.** It runs the same fixed steps every time and uses AI models to help work through large volumes of policy documents and analysis. Auditors review the results at the end.
 
-This is the working-code home for the Hackathon 4 plan [`plan-compliance-audit-agent.md`](https://github.com/SAAF-Project/SAAF-Project/pull/117) (pending review in the shared SAAF-Project repository — update this link to the `main` blob once that PR merges). Per the SAAF "Building an agent" guidance, agent source code lives in its own repo while the plan and shared utilities stay in the main repo.
+This is the working-code home for the Hackathon 4 plan `junhan-wen-compliance-audit-agent.md`, submitted in [SAAF-Project/SAAF-Project#117](https://github.com/SAAF-Project/SAAF-Project/pull/117). What the agent must be judged against is in [`AUDIT-CRITERIA.md`](AUDIT-CRITERIA.md). Per the SAAF "Building an agent" guidance, agent source code lives in its own repo while the plan and shared utilities stay in the main repo.
 
 ## Focus: verbatim evidence
 
