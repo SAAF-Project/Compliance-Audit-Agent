@@ -24,6 +24,7 @@ prompts/                   Full agent prompts (system + user prompt) — single 
 scripts/
   orchestration.py         Entry point — command-line arguments, run settings, loop over the guidelines
   claude_config.py         Anthropic client + run configuration (env vars)
+  build_prompt.py          Prompt builders for the selector, compliance checker, gap identifier and reporter agents
 AUDIT-CRITERIA.md          Control objectives, acceptance criteria and known gaps (SAAF A2 standard)
 ```
 

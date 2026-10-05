@@ -19,6 +19,7 @@ call_graph.md
 scripts/*.py
 !scripts/orchestration.py
 !scripts/claude_config.py
+!scripts/build_prompt.py
 
 # Local data & generated outputs — never commit real audit evidence
 data/*
