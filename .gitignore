@@ -43,3 +43,6 @@ raw_validation_report_*.json
 
 # Test caches
 .pytest_cache/
+
+# Local secrets
+.env

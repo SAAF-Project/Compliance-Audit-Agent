@@ -131,6 +131,15 @@ the objectives of the regulation or policies it happens to assess.
 | ✓ With `--validate`: a found / not found result for every quoted excerpt | ✕ Hide a failed stage behind generated content |
 | ✓ An explicit error status when a stage failed | ✕ Hard-code credentials, or commit real policy documents or run outputs |
 
+### Finding schema mapping
+
+TODO(owner): the reporter emits clause-level results (compliance status, gap
+outcome, severity, recommendation) that are not yet mapped to the SAAF finding
+schema (`outputs/schemas/finding-schema.json` in the main SAAF-Project repo:
+`id` matching `F-\d{2,4}`, `title`, `risk_rating` High / Medium / Low /
+Informational, `observation`, `recommendation`). Add the mapping (for example,
+gap severity to `risk_rating`) or state why the schema does not apply.
+
 ## 5. Coverage gaps
 
 - **No automatic sync with the policy library.** In the organisation where the

@@ -225,3 +225,33 @@ Built by Junhan Wen and polished/processed with Claude. This is a pilot project
 developed to assist real-life audit work; this repository is the SAAF-hackathon
 version. Do not commit real audit evidence, personal data, or credentials; use
 synthetic or anonymized data only.
+
+## Guardrails
+
+- The published scripts in `scripts/` make no shell calls and contain none of
+  the commands prohibited by SAAF `regulatory/guardrails/allowed-commands.md`
+  (`rm`, `sudo`, `curl`, `wget`, `ssh`, `scp`, `chmod`, `chown`, `cron`,
+  runtime `pip install`). Dependencies are installed once from
+  `requirements.txt`; nothing is installed at runtime.
+- TODO(owner): `scripts/orchestration.py` imports `utils`, but `scripts/utils.py`
+  is excluded by `.gitignore` and is not in the repository, so a fresh clone
+  cannot run the pipeline. Publish the module (or document how to obtain it)
+  and confirm that it follows the same allowlist.
+
+## Model & data residency
+
+- Model: Anthropic Claude through the Anthropic API. Default
+  `claude-sonnet-4-6`, overridable with `ANTHROPIC_MODEL` (see
+  [Configuration](#configuration)).
+- Data sent to the model: the guideline text, the policy summary and the full
+  text of the shortlisted policy documents, for each of the four stages.
+- TODO(owner): state where this data is processed and retained (Anthropic API
+  region and data-retention terms), and whether an EU-hosted or local model
+  option is supported.
+
+## License
+
+TODO(owner): licence to be decided by Stichting SAAF.
+
+Contact: Junhan Wen (maintainer, see below). TODO(owner): add a preferred
+contact channel.
