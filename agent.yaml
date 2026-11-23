@@ -1,0 +1,29 @@
+# Describes the public launcher only; unpublished runtime behavior is not verified.
+name: Compliance-Audit-Agent
+repo: SAAF-Project/Compliance-Audit-Agent
+island: governance
+maturity: building
+confirmed: false
+category: Compliance audit support
+language: Python
+description: Public launcher for an author-managed private policy compliance pipeline; this checkout reports status or refuses a missing runtime and does not include the assessment engine.
+tags: [policy-compliance, public-launcher, human-review]
+depends_on: []
+mandate:
+  purpose: Make the public/private execution boundary explicit and preserve the author's distribution decision; private assessment authority remains separately unverified.
+  allowed_tools: [show_public_distribution_status, validate_launcher_arguments, load_explicit_local_runtime_when_separately_supplied, report_incomplete_execution]
+  forbidden_actions:
+    - action: change_own_config
+      rationale: Guideline selection, private runtime, provider terms and publication scope require review.
+    - action: recover_or_republish_withdrawn_private_material
+      rationale: Current main intentionally excludes prompts, internal helpers, private tests and samples.
+    - action: present_public_stub_tests_as_assessment_assurance
+      rationale: Stub results do not establish evidence validity, model behavior, access controls or regulatory compliance.
+    - action: claim_replay_has_no_provider_calls_from_a_flag
+      rationale: This launcher cannot verify the unpublished runtime's network behavior.
+  trusted_inputs: [reviewed_public_launcher, explicitly_supplied_local_runtime, user_selected_guideline_paths]
+  human_approval_required_for:
+    - supplying and accepting the private runtime and its rights
+    - selecting provider, region, retention, scope and data authorization
+    - reviewing draft audit findings and releasing any report
+  evidence_policy: cite_only_given_context

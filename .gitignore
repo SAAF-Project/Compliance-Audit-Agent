@@ -49,3 +49,10 @@ raw_validation_report_*.json
 
 # Test caches
 .pytest_cache/
+
+# Local secrets
+.env
+
+# Newly authored public launcher boundary tests only; private suites stay ignored.
+!tests/public_entrypoint/
+!tests/public_entrypoint/test_cli.py

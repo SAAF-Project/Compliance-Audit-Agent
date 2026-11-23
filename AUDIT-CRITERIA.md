@@ -1,6 +1,6 @@
 # AUDIT-CRITERIA.md — Compliance-Audit-Agent
 
-> What this agent must be judged against as an auditee: its control objectives, testable acceptance criteria, and known limits. The [README](README.md) says what the agent does and how to run it. This document follows the SAAF A2 standard (`docs/conventions/audit-criteria-template.md` in the main SAAF-Project repo).
+> What this agent must be judged against as an auditee: its control objectives, testable acceptance criteria, and known limits. The [README](README.md) distinguishes the public launcher from the unpublished assessment engine. This document follows the SAAF A2 standard (`docs/conventions/audit-criteria-template.md` in the main SAAF-Project repo).
 
 ---
 
@@ -18,11 +18,33 @@
 `prompts/`, the pipeline code, and one offline re-run of a saved pipeline run on
 2026-10-05 (cited in section 6). Not yet reviewed by a second person.
 
-**This agent makes model calls at runtime** (four Claude calls per guideline:
-selector, compliance checker, gap identifier, reporter), so AI-specific
-frameworks apply.
+**Historical design description:** the earlier implementation was described as
+making four Claude calls per guideline. The public checkout does not include
+that runtime and cannot verify its current model behavior or framework scope.
 
-## 1. What the agent does
+## Current public evidence boundary
+
+Main commit `3c0dd0ccd43fa0d91755bb075ea94d57a1b37cf2` deliberately withdrew
+internal helpers, prompts, samples and tests from the public tree. They are not
+restored by this change. CO-1 through CO-5 and the October observations below
+remain historical design/runtime descriptions, not freshly verified claims about
+an accessible implementation. The framework mappings are proposals, not a new
+standard or a determination of legal applicability.
+
+| Criterion | Type | Current public evidence |
+|---|---|---|
+| CAA-PUB-01 — Status requires no private runtime or inputs; a public checkout cannot claim an audit ran. | `[code]` | Status/missing-runtime tests in `tests/public_entrypoint/test_cli.py`; exits 0 for metadata or 2 for a missing runtime. |
+| CAA-PUB-02 — Import is inert and runtime selection is limited to the explicit regular sibling helper. | `[code]` | Import test, working-directory helper rejection, symlink rejection and synthetic positive sibling case. This is not a sandbox for supplied private code. |
+| CAA-PUB-03 — Malformed or missing selected guideline input and inconsistent replay flags cannot start the helper. | `[code]` | Invalid JSON/type/text/duplicate-key cases and flag tests; no provider is used. |
+| CAA-PUB-04 — Missing results/replies and runtime failures cannot report launcher success. | `[code]` | No-result/partial replay/private SystemExit tests; partial artifacts remain; exception-content sentinel is not echoed. |
+| CAA-PUB-05 — A same-name combined artifact cannot overwrite earlier evidence. | `[code]` | Fixed-clock retry test preserves the previous bytes; private-helper idempotency and repeated provider work remain unverified. |
+| CO-1..CO-5 — Evidence validity, private runtime behavior, confidentiality and assessment quality. | `[review]` / `[llm]` | **Not assessed in this public run.** Stubs and old observations do not establish these controls. |
+
+Public CI repeats only the new launcher tests on Python 3.10/3.12. Test results
+belong to their commit and run. A successful fake result only verifies the
+launcher protocol, not an audit finding or the private implementation.
+
+## 1. Historically described agent behavior
 
 Given a regulatory guideline and a library of internal policy documents, the
 agent shortlists the policies most relevant to the guideline, runs two
@@ -131,6 +153,15 @@ the objectives of the regulation or policies it happens to assess.
 | ✓ With `--validate`: a found / not found result for every quoted excerpt | ✕ Hide a failed stage behind generated content |
 | ✓ An explicit error status when a stage failed | ✕ Hard-code credentials, or commit real policy documents or run outputs |
 
+### Finding schema mapping
+
+TODO(owner): the reporter emits clause-level results (compliance status, gap
+outcome, severity, recommendation) that are not yet mapped to the SAAF finding
+schema (`outputs/schemas/finding-schema.json` in the main SAAF-Project repo:
+`id` matching `F-\d{2,4}`, `title`, `risk_rating` High / Medium / Low /
+Informational, `observation`, `recommendation`). Add the mapping (for example,
+gap severity to `risk_rating`) or state why the schema does not apply.
+
 ## 5. Coverage gaps
 
 - **No automatic sync with the policy library.** In the organisation where the
@@ -144,13 +175,11 @@ the objectives of the regulation or policies it happens to assess.
   policies exist as `.docx`. Each user converts the documents by hand, which
   adds effort and a place where text, tables or headings can be lost before the
   agent ever sees them.
-- **Public tests cover the prompts and a small synthetic set only.** `samples/`
-  holds two synthetic guidelines, five synthetic policies, hand-written
-  reference outputs and a flawed case with three planted defects; `tests/`
-  checks the prompt builders and the consistency of that set without calling a
-  model. Tests on real company policies and on the audit results derived from
-  them cannot be published, and no recorded model run on the synthetic set is
-  included yet.
+- **Private pipeline tests are not distributed.** The former prompt/sample tests
+  were removed by the author. Current public CI exercises only the launcher with
+  newly authored synthetic stubs, without model calls or private sample material.
+  Real private-runtime tests and any model evaluation require a separately
+  authorized environment and accepted evidence scope.
 - **Evidence validation is optional and checks existence only.** Location
   validation (policy title, section and line range) is planned but not built.
 - **Silent fallback to all policies** when the selector's titles match no file
@@ -164,9 +193,9 @@ the objectives of the regulation or policies it happens to assess.
 - **Run logs are plain local files that contain confidential policy text**, with
   no retention rule or integrity protection.
 
-## 6. Status / validation
+## 6. Historical status / validation (not rerun)
 
-| Acceptance criterion | Verified? | Evidence |
+| Acceptance criterion | Historical observation? | Evidence |
 |---|---|---|
 | CO-2 — assessment agents receive only the matched policy files | ☑ (one run) | Offline re-run on 2026-10-05 of a saved run for one guideline: the selector's titles matched 8 of 34 policy files, and only those were loaded |
 | CO-2 — stage inputs and raw replies are saved per run | ☑ (one run) | Same run: selector, compliance, gap and reporter input files were written to the progress folder |
@@ -179,13 +208,13 @@ the objectives of the regulation or policies it happens to assess.
 | CO-4 — failed stage is recorded as an error | ☐ | Read from the code, not exercised |
 | CO-5 — no credentials or evidence in the repository | ☑ | Tracked files reviewed on 2026-10-05: none contains credentials, policy text or run output |
 
-Next steps: run the agent on the synthetic set in `samples/` and on its flawed
-case (a paraphrased excerpt, a misattributed excerpt, a compliance/gap
-disagreement), and record the results here to exercise CO-1 and CO-3.
+Next step: the owner must provide an authorized review environment and accepted
+synthetic evaluation set for the private implementation. Do not reconstruct or
+republish withdrawn material to make these historical rows appear current.
 
-## 7. Observability
+## 7. Historically described observability (private implementation unverified)
 
-Logged today: for every guideline and stage, the prompt and knowledge sent to
+The earlier design described: for every guideline and stage, the prompt and knowledge sent to
 the model, the raw reply and the parsed output are written to the progress
 folder under the run timestamp, together with the merged results, the validation
 reports and the final report. A refusal or a reply cut off at the token limit is
