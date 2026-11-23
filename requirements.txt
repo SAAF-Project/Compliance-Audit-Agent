@@ -1,3 +1,6 @@
+# Historical declarations for the separately supplied private runtime.
+# The public launcher and its tests use only the Python standard library.
+# These ranges are not locked, installed or validated by public CI.
 anthropic>=0.40
 python-docx>=1.1
 anytree>=2.8

@@ -1,5 +1,9 @@
 # Compliance-Audit-Agent
 
+**Public launcher only.** This checkout does not include the assessment engine
+and cannot perform a policy audit. The status and refusal commands below run
+without a provider key, site packages or private material.
+
 A pilot company policy compliance auditing assistant. Given a regulatory
 guideline, it narrows down to the internal policies that matter, runs more
 than one independent reasoning pass over them, reconciles what each pass
@@ -36,31 +40,51 @@ directly.
 Only a thin, non-functional slice is tracked in git: the entry point
 (`scripts/orchestration.py`), the project documentation, and configuration
 plumbing. The prompts that drive each reasoning stage, the internal helper
-modules, the synthetic sample data, and the test suite all live only in the
+modules, the synthetic sample data, and the private test suite all live only in the
 author's local working copy and are intentionally excluded from version
 control (see `.gitignore`). A public checkout of this repository is not
-sufficient to run the pipeline or to reconstruct how it works internally.
+sufficient to run the pipeline or to reconstruct how it works internally. The
+new public tests cover only the launch protocol with small newly authored stubs;
+they do not restore or execute the withdrawn private tests or samples.
 
-## Requirements
+## Public status and checks
+
+The public launcher and tests need only Python's standard library. CI checks
+Python 3.10 and 3.12; no package installation, provider key or `.env` is needed.
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+python3 -I -S scripts/orchestration.py --status
+python3 -I -S scripts/orchestration.py
+python3 -I -S -m unittest discover -s tests/public_entrypoint -v
 ```
 
-- Python 3.10+
-- An Anthropic API key in your environment:
-  ```bash
-  export ANTHROPIC_API_KEY=sk-ant-...
-  ```
+`--status` exits 0 with `pipeline_verified: false`. A default public checkout
+exits 2 for missing `scripts/utils.py`, before reading audit data or creating
+progress files. The public tests use fake helpers in fresh temporary directories,
+not the author's private implementation. `requirements.txt` retains historical
+private-runtime dependency declarations; these ranges are not a tested install
+contract and public CI does not install them.
 
-## Running
+## Supplying a private runtime
 
-The entry point is `scripts/orchestration.py`. It expects its supporting
-modules, prompt files, and input data to be present locally — none of which
-are included in this public checkout. This repository is published as a
-record of the work, not as a runnable distribution.
+The original author-managed runtime remains outside this distribution. If a
+separately authorized local copy is supplied, the launcher uses only the regular
+`utils.py` beside itself, never a same-named helper from the working directory.
+That helper must provide `configure`, `main` and the missing-reply list. Existing
+argument names and the guideline selection `[27]` are retained; no sample content
+or assessment logic is supplied here. Guideline input, including duplicate JSON keys, is checked before importing
+the helper. Private code is trusted executable code, not sandboxed by this
+launcher, and may need its own dependency environment and review.
+
+Empty results, missing saved replies, invalid input and runtime failures
+(including an internal `SystemExit(0)`) return 2; interruption returns 130.
+Combined output files are created exclusively: a same-second filename collision
+fails instead of overwriting earlier evidence. Existing or partial artifacts are
+retained for inspection. This does not establish private-helper idempotency: a
+retry can still repeat its work, provider calls or private output writes. A zero exit reports only completion of the launcher protocol, not
+valid findings, adequate audit evidence or a passing assessment. `--load-progress`
+is a request to the private runtime: the public launcher cannot prove no provider
+call occurred. `--no-data-testmode` requires both `--validate` and `--load-progress`.
 
 ## Known gaps / TODO
 
@@ -86,9 +110,8 @@ approach as your own.
 ## Public boundary and SAAF standards
 
 The public checkout cannot run the private pipeline. Its missing helpers are an
-intentional publication decision, not an instruction to republish them. A safe
-public status/refusal contract and public launcher tests can be assessed
-separately from the author's unpublished pipeline.
+intentional publication decision, not an instruction to republish them. The public status/refusal contract and public launcher tests are assessed
+separately from the author's unpublished pipeline; see [`SECURITY.md`](SECURITY.md).
 
 The original standards contribution identifies unresolved findings-schema
 mapping, model/data residency, command restrictions and licensing. These remain
